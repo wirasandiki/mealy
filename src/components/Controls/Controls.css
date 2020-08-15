@@ -13,19 +13,19 @@
 }
 
 .prev-button {
-  position: fixed;
-  top: 50px;
+  position: absolute;
+  top: 10vh;
   z-index: 100;
 }
 
 .next-button {
-  position: fixed;
-  bottom: 50px;
+  position: absolute;
+  bottom: 10vh;
   z-index: 100;
 }
 
 .progress {
-  position: fixed;
+  position: absolute;
   left: 50px;
   display: flex;
   flex-direction: column;

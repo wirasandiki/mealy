@@ -1,7 +1,11 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  background-color: #F4F4F4;
 }
 
 .primary-text {
@@ -23,6 +27,26 @@ body {
   transition: background-color 300ms ease-out;
 }
 
-.slide-wrapper {
+.slide-container {
+  position: absolute;
+  width: 100%;
+}
+
+.slide-content-wrapper, .slide-container {
   transition: transform 300ms ease-in-out;
+}
+
+.page-content-wrapper {
+  margin-top: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page-content {
+  width: 1280px;
+}
+
+.loading-text {
+  font-size: 28px;
 }

@@ -18,7 +18,7 @@ function QuestionOne(props) {
         <label className="primary-text" htmlFor="QuestionOne">What kind of meal do you want?</label>
         <p className="secondary-text">*separate by comma</p>
       </div>
-      <InputText id="QuestionOne" value={value} onChange={onChange} placeholder="e.g. burger, meet" inputRef={inputRef} />
+      <InputText id="QuestionOne" value={value} onChange={onChange} placeholder="e.g. burger, meat, noodle" inputRef={inputRef} />
     </div>
   );
 }

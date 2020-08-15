@@ -39,7 +39,7 @@ function Controls(props) {
       )}
       {activeIndex !== 0 && (
         <div className="progress centered-vertically">
-          {Array(totalIndex - 1).fill(null).map((_,idx) => (
+          {Array(totalIndex - 2).fill(null).map((_,idx) => (
             <img
               src={idx < activeIndex ? crackedEgg : egg}
               height="20"

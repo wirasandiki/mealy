@@ -6,12 +6,13 @@ import './Button.css';
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   icon: PropTypes.elementType.isRequired,
-  size: PropTypes.number,
+  iconSize: PropTypes.number,
+  backgroundColor: PropTypes.string,
 };
 
 function Button(props) {
   const [isHovered, setIsHovered] = useState(false);
-  const { onClick, icon, size = 16 } = props;
+  const { onClick, icon, iconSize = 16, backgroundColor = 'white' } = props;
 
   const toggleIsHovered = () => {
     setIsHovered(!isHovered);
@@ -19,8 +20,8 @@ function Button(props) {
 
   return (
     <div className="button" onClick={onClick} onMouseEnter={toggleIsHovered} onMouseLeave={toggleIsHovered}>
-      <div className="circle">
-        <img src={icon} alt="Chevron button" width={size} height={size} />
+      <div className="circle" style={{ backgroundColor }}>
+        <img src={icon} alt="Chevron button" width={iconSize} height={iconSize} />
       </div>
     </div>
   );

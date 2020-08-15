@@ -1,0 +1,11 @@
+.pill-wrapper {
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.pill-icon {
+  margin-right: 5px;
+}

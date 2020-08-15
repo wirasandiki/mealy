@@ -1,0 +1,33 @@
+.recipe-list-wrapper {
+  padding-top: 60px;
+}
+
+.recipe-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-list-setting {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-list-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.card-item-wrapper {
+  margin-bottom: 20px;
+}
+
+.recipe-list-title {
+  font-size: 2em;
+}
