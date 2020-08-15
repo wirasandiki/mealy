@@ -1,0 +1,22 @@
+.bullet {
+  color: white;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 8px 10px;
+  font-size: 1.1em;
+  margin: 6px;
+}
+
+.bullet:hover {
+  cursor: pointer;
+}
+
+.bullet-active {
+  background-color: white;
+  color: #6AB547;
+}
+
+.items-wrapper {
+  display: flex;
+}

@@ -1,0 +1,21 @@
+header {
+  max-height: 10vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  transition: transform 300ms ease-in;
+  z-index: 99;
+}
+
+.header-logo {
+  display: flex;
+}
+
+.header-logo-text {
+  margin: 2px 0 0 7px;
+  font-size: 2em;
+  color: white;
+}

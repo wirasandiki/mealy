@@ -1,0 +1,15 @@
+label {
+  color: white;
+  font-size: 2em;
+  display: block;
+}
+
+p {
+  margin: 8px 0 0 0;
+  color: white;
+  font-size: 1em;
+}
+
+.label-description {
+  margin-bottom: 30px;
+}

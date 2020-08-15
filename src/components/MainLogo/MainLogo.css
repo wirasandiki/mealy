@@ -1,0 +1,23 @@
+.main-logo {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.banner-text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+  margin-top: 25px;
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-size: 6em;
+}
+
+.banner-text h2 {
+  margin: 0;
+  font-size: 2em;
+}

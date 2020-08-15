@@ -1,0 +1,32 @@
+input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  padding-bottom: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  opacity: 0.5;
+}
+
+.input-light {
+  color: white;
+  border-bottom-color: white;
+}
+
+.input-light::placeholder {
+  color: white;
+}
+
+.input-dark {
+  color: #23192D;
+  border-bottom-color: #23192D;
+}
+
+.input-dark::placeholder {
+  color: #23192D;
+}

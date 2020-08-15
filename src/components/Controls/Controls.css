@@ -1,0 +1,33 @@
+.centered-vertically {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.centered-horizontally {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+.prev-button {
+  position: fixed;
+  top: 50px;
+  z-index: 100;
+}
+
+.next-button {
+  position: fixed;
+  bottom: 50px;
+  z-index: 100;
+}
+
+.progress {
+  position: fixed;
+  left: 50px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
