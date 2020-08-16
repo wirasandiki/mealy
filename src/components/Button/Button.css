@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
 }
 
 .circle {
-  background-color: white;
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -16,4 +16,12 @@
 
 .button-text {
   margin: 10px;
+}
+
+.badge-button {
+  position: absolute;
+  background-color: #F5ECB7;
+  padding: 2px;
+  right: 0;
+  top: -5px;
 }

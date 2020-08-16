@@ -12,6 +12,8 @@ import vegan from '../../assets/vegan.svg';
 import vegetarian from '../../assets/vegetarian.svg';
 import glutenFree from '../../assets/gluten-free.svg';
 import dairyFree from '../../assets/dairy-free.svg';
+import calory from '../../assets/calory.svg';
+import servingTime from '../../assets/serving-time.svg';
 import empty from '../../assets/empty.svg';
 
 import COLOR from '../../constants/color';
@@ -41,6 +43,7 @@ function RecipeList(props) {
       key: 'calory',
       type: 'sort',
       icon: sortIcon,
+      badgeIcon: calory,
       onClick: function() {
         const newSort = sort === 'calory' ? '' : 'calory';
         onUpdateSetting(query, filter, newSort);
@@ -51,6 +54,7 @@ function RecipeList(props) {
       key: 'readyInMinutes',
       type: 'sort',
       icon: sortIcon,
+      badgeIcon: servingTime,
       onClick: function() {
         const newSort = sort === 'readyInMinutes' ? '' : 'readyInMinutes';
         onUpdateSetting(query, filter, newSort);
@@ -131,7 +135,7 @@ function RecipeList(props) {
             const isActive = (item.type === 'sort' && item.key === sort) || (item.type === 'filter' && filter[item.key]);
             return (
               <div style={{ marginLeft: '8px' }} key={idx}>
-                <Button onClick={item.onClick} icon={item.icon} backgroundColor={isActive ? COLOR.RED : COLOR.DARK} />
+                <Button onClick={item.onClick} icon={item.icon} backgroundColor={isActive ? COLOR.RED : COLOR.DARK} badgeIcon={item.badgeIcon} />
               </div>
             );
           })}
