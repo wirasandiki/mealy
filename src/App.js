@@ -173,16 +173,6 @@ function App() {
   };
 
   useEffect(() => {
-    // document.addEventListener('keydown', (event) => {
-    //   if (event.keyCode === 32 || event.keyCode === 9 || event.keyCode === 40) {
-    //     handlePressNext();
-    //   } else if (event.keyCode === 38) {
-    //     handlePressPrev();
-    //   }
-    // });
-  }, []);
-
-  useEffect(() => {
     if (slides[activeIndex].ref && slides[activeIndex].ref.current) {
       setTimeout(() => {
         slides[activeIndex].ref.current.focus();
