@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
+import Tooltip from '../Tooltip/Tooltip';
 
 import './Controls.css';
 import egg from '../../assets/egg.svg';
@@ -23,18 +24,30 @@ Controls.propTypes = {
 
 function Controls(props) {
   const { prevButton, nextButton, activeIndex, totalIndex } = props;
+  let tooltipText;
+  if (activeIndex === 0) {
+    tooltipText = 'Let\'s Start!';
+  } else if (activeIndex === totalIndex - 2) {
+    tooltipText = 'Get recipes now!';
+  } else {
+    tooltipText = 'Next';
+  }
   return (
     <>
       {prevButton.isVisible && (
         <div className="prev-button centered-horizontally">
-          <div className="rotate180">
-            <Button onClick={prevButton.onPress} icon={prevButton.icon} />
-          </div>
+          <Tooltip content={<p className="secondary-text">Prev</p>} placement="bottom">
+            <div className="rotate180">
+              <Button onClick={prevButton.onPress} icon={prevButton.icon} />
+            </div>
+          </Tooltip>
         </div>
       )}
       {nextButton.isVisible && (
         <div className="next-button centered-horizontally">
-          <Button onClick={nextButton.onPress} icon={nextButton.icon} />
+          <Tooltip content={<p className="secondary-text">{tooltipText}</p>} isVisible={activeIndex === 0} contentWidth={150}>
+            <Button onClick={nextButton.onPress} icon={nextButton.icon} />
+          </Tooltip>
         </div>
       )}
       {activeIndex !== 0 && (

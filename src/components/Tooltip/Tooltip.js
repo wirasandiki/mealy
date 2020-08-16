@@ -9,16 +9,17 @@ Tooltip.propTypes = {
   content: PropTypes.element.isRequired,
   placement: PropTypes.oneOf(['top', 'bottom']),
   onHover: PropTypes.func,
+  contentWidth: PropTypes.number,
 };
 
 function Tooltip(props) {
-  const { style, children, isVisible, content, placement = 'top', onHover } = props;
+  const { style, children, isVisible, content, placement = 'top', onHover, contentWidth = 100 } = props;
   const [show, setShow] = useState(isVisible | false);
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
   const contentRef = useRef(null);
   const handleMouseEnter = () => {
-    onHover();
+    onHover && onHover();
     setShow(true);
   };
   const handleMouseLeave = () => {
@@ -43,6 +44,9 @@ function Tooltip(props) {
           visibility: show ? 'visible' : 'hidden',
           [placement]: `calc(-${height}px - 5px)`,
           left: `calc(-${width/2}px + 50%)`,
+          width: `${contentWidth}px`,
+          display: 'flex',
+          justifyContent: 'center',
         }}
         ref={contentRef}
       >
