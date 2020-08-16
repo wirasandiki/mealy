@@ -31,3 +31,18 @@
 .recipe-list-title {
   font-size: 2em;
 }
+
+.empty-list-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 170px;
+  flex-direction: column;
+}
+
+.empty-list-wrapper p {
+  color: #23192D;
+  font-size: 1.25em;
+  margin-top: 20px;
+}

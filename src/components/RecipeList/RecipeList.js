@@ -12,6 +12,7 @@ import vegan from '../../assets/vegan.svg';
 import vegetarian from '../../assets/vegetarian.svg';
 import glutenFree from '../../assets/gluten-free.svg';
 import dairyFree from '../../assets/dairy-free.svg';
+import empty from '../../assets/empty.svg';
 
 import COLOR from '../../constants/color';
 
@@ -111,7 +112,7 @@ function RecipeList(props) {
   return (
     <div className="recipe-list-wrapper">
       <div className="recipe-list-header">
-        <h2 className="primary-text recipe-list-title">Recipes are ready!</h2>
+        <h2 className="primary-text recipe-list-title">{data.length === 0 ? 'We\'re sorry...' : 'Recipes are ready!'}</h2>
         <div className="recipe-list-setting">
           <InputText
             value={query}
@@ -136,16 +137,23 @@ function RecipeList(props) {
           })}
         </div>
       </div>
-      <div className="card-list-wrapper">
-        {data.map(item => (
-          <div key={item.id}>
-            <RecipeCard
-              item={item}
-              onClick={() => handleClickCard(item.id)}
-            />
-          </div>
-        ))}
-      </div>
+      {data.length === 0 ? (
+        <div className="empty-list-wrapper">
+          <img src={empty} alt="empty icon" width="120" height="120"/>
+          <p className="secondary-text">We couldn't find the recipe :(</p>
+        </div>
+      ) : (
+        <div className="card-list-wrapper">
+          {data.map(item => (
+            <div key={item.id}>
+              <RecipeCard
+                item={item}
+                onClick={() => handleClickCard(item.id)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

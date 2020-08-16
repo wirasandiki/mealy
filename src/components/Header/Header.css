@@ -8,10 +8,12 @@ header {
   padding: 20px 40px;
   transition: transform 300ms ease-in, background-color 300ms ease-out;
   z-index: 99;
+  justify-content: center;
 }
 
 .header-logo {
   display: flex;
+  width: 1280px;
 }
 
 .header-logo-text {

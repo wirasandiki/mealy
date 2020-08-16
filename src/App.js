@@ -19,6 +19,7 @@ import logoAlt from './assets/logo-alt.svg';
 import chevronPrimary from './assets/chevron-primary.svg';
 import chevronYellow from './assets/chevron-yellow.svg';
 import chevronGreen from './assets/chevron-green.svg';
+import crackedEgg from './assets/cracked-egg.svg';
 
 import COLOR from './constants/color';
 import { HEADERS_GET, HOST } from './constants/api';
@@ -72,7 +73,13 @@ function App() {
     {
       name: 'loading',
       backgroundColor: COLOR.RED,
-      content: <p className="primary-text loading-text">Preparing your recipes...</p>,
+      content: (
+        <div className="loading-text-wrapper">
+          <img src={crackedEgg} alt="loading-icon" width="32" height="32" className="rotating" />
+          <p className="primary-text loading-text">Preparing your recipes...</p>
+          <img src={crackedEgg} alt="loading-icon" width="32" height="32" className="rotating" />
+        </div>
+      ),
     },
   ];
 
