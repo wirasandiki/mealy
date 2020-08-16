@@ -1,6 +1,8 @@
 .main-logo {
   display: flex;
   margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-text {
@@ -20,4 +22,42 @@
 .banner-text h2 {
   margin: 0;
   font-size: 2em;
+}
+
+@media only screen and (max-width: 900px) {
+  .banner-text h1 {
+    font-size: 4em;
+  }
+  
+  .banner-text h2 {
+    font-size: 1.5em;
+  }
+
+  .main-logo img {
+    width: 140px;
+    height: 140px;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .main-logo {
+    width: 90%;
+  }
+  .banner-text {
+    margin-left: 10px;
+  }
+  .banner-text h1 {
+    font-size: 2em;
+  }
+  
+  .banner-text h2 {
+    font-size: 1em;
+  }
+
+  .main-logo img {
+    width: 80px;
+    height: 80px;
+    margin-top: 15px;
+  }
 }

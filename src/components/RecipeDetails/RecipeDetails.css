@@ -69,12 +69,44 @@ li {
   background-color: #23192D;
   padding: 10px;
   border-radius: 10px;
+  z-index: 100;
 }
 
 .instruction-tooltip-wrapper p {
   margin: 0;
+  color: white;
 }
 
 .instruction-tooltip-wrapper li {
   color: white;
+}
+
+@media only screen and (max-width: 800px) {
+  .recipe-detail-card {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .recipe-detail-card {
+    border-radius: 0;
+  }
+  .recipe-detail-wrapper {
+    padding: 0;
+  }
+  .recipe-detail-loading {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .recipe-detail-header {
+    height: 200px;
+  }
+  .recipe-detail-card-title {
+    padding: 20px 30px;
+  }
+  .recipe-detail-card-content {
+    padding: 20px 30px;
+  }
 }

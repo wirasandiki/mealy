@@ -45,6 +45,7 @@ html {
 
 .page-content {
   width: 1280px;
+  padding: 0 40px;
 }
 
 .loading-text {
@@ -62,6 +63,10 @@ html {
   margin-top: 5px;
 }
 
+.loading-text-wrapper p {
+  color: white;
+}
+
 @keyframes rotating {
   from {
     transform: rotate(0deg);
@@ -73,4 +78,38 @@ html {
 
 .rotating {
   animation: rotating 2s linear infinite;
+}
+
+@media only screen and (max-width: 560px) {
+  .loading-text {
+    font-size: 20px;
+  }
+
+  .loading-text-wrapper img {
+    margin-top: 0;
+    width: 16px;
+    height: 16px;
+  }
+
+  .page-content-detail {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .loading-text {
+    font-size: 14px;
+  }
+
+  .loading-text-wrapper img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .page-content {
+    padding: 0 20px;
+  }
+
+  .page-content-detail {
+    padding: 0;
+  }
 }

@@ -16,9 +16,13 @@
   justify-content: space-between;
 }
 
+.setting-buttons {
+  display: flex;
+}
+
 .card-list-wrapper {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -45,4 +49,64 @@
   color: #23192D;
   font-size: 1.25em;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .card-list-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .recipe-list-wrapper {
+    padding-top: 30px;
+  }
+  .card-list-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+  }
+  .recipe-list-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .recipe-list-setting {
+    width: 100%;
+    padding: 20px;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+  .recipe-list-setting input {
+    flex: 1;
+  } 
+}
+@media only screen and (max-width: 680px) {
+  .card-list-wrapper {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .recipe-list-setting input {
+    font-size: 14px !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .recipe-list-setting {
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 70px;
+  }
+  .recipe-list-setting input {
+    width: 100% !important;
+  }
+  .setting-buttons {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    bottom: -75px;
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: space-evenly;
+  }
+  .recipe-list-title {
+    font-size: 1.5em;
+  }
 }

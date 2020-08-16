@@ -18,12 +18,14 @@ function Header(props) {
 
   return (
     <header style={style}>
-      <a href="/" >
-        <div className="header-logo">
-          <img src={icon} alt="Mealy Logo" width="40" height="40" />
-          <h1 className="primary-text header-logo-text">Mealy</h1>
-        </div>
-      </a>
+      <div className="header-inner">
+        <a href="/" >
+          <div className="header-logo">
+            <img src={icon} alt="Mealy Logo" width="40" height="40" />
+            <h1 className="primary-text header-logo-text">Mealy</h1>
+          </div>
+        </a>
+      </div>
     </header>
   );
 }

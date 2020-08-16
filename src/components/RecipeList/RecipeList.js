@@ -131,14 +131,16 @@ function RecipeList(props) {
             placeholder="Filter by meal’s name…"
             ink="dark"
           />
-          {settings.map((item, idx) => {
-            const isActive = (item.type === 'sort' && item.key === sort) || (item.type === 'filter' && filter[item.key]);
-            return (
-              <div style={{ marginLeft: '8px' }} key={idx}>
-                <Button onClick={item.onClick} icon={item.icon} backgroundColor={isActive ? COLOR.RED : COLOR.DARK} badgeIcon={item.badgeIcon} />
-              </div>
-            );
-          })}
+          <div className="setting-buttons">
+            {settings.map((item, idx) => {
+              const isActive = (item.type === 'sort' && item.key === sort) || (item.type === 'filter' && filter[item.key]);
+              return (
+                <div style={{ marginLeft: idx === 0 ? '0' : '8px' }} key={idx}>
+                  <Button onClick={item.onClick} icon={item.icon} backgroundColor={isActive ? COLOR.RED : COLOR.DARK} badgeIcon={item.badgeIcon} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       {data.length === 0 ? (

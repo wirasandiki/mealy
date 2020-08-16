@@ -18,10 +18,18 @@
   z-index: 100;
 }
 
+.prev-button p {
+  color: white;
+}
+
 .next-button {
   position: absolute;
   bottom: 10vh;
   z-index: 100;
+}
+
+.next-button p {
+  color: white;
 }
 
 .progress {
@@ -30,4 +38,22 @@
   display: flex;
   flex-direction: column;
   z-index: 100;
+}
+
+@media only screen and (max-width: 680px) {
+  .progress {
+    left: 20px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .next-button {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .progress {
+    display: none;
+  }
 }

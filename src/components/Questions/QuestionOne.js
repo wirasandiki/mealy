@@ -13,7 +13,7 @@ QuestionOne.propTypes = {
 function QuestionOne(props) {
   const { value, onChange, inputRef } = props;
   return (
-    <div className="wrapper">
+    <div className="question-wrapper">
       <div className="label-description">
         <label className="primary-text" htmlFor="QuestionOne">What kind of meal do you want?</label>
         <p className="secondary-text">*separate by comma</p>

@@ -102,7 +102,7 @@ function RecipeDetails() {
       {isLoading ? <p className="primary-text recipe-detail-loading">Preparing your recipe...</p> : (
         <div className="recipe-detail-card">
           <div className="recipe-detail-header">
-            <img className="recipe-detail-image" src={data.image} alt={data.title} width="100%" height="360" />
+            <img className="recipe-detail-image" src={data.image} alt={data.title} width="100%" height="100%" />
             <div className="recipe-detail-image-overlay" />
             <h3 className="primary-text recipe-detail-card-title">{data.title}</h3>
           </div>

@@ -231,7 +231,7 @@ function App() {
         <Route path="/recipe/:id">
           <Header icon={logoIcon} isVisible={true} backgroundColor={COLOR.RED} />
           <div className="page-content-wrapper">
-            <div className="page-content">
+            <div className="page-content page-content-detail">
               <RecipeDetails />
             </div>
           </div>

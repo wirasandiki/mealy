@@ -19,4 +19,38 @@
 
 .items-wrapper {
   display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 860px) {
+  .items-wrapper {
+    width: 400px;
+  }
+  .bullet {
+    font-size: .9em;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .items-wrapper {
+    width: 300px;
+  }
+  .bullet {
+    font-size: .8em;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .items-wrapper {
+    width: 220px;
+  }
+  .bullet {
+    font-size: .7em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .bullet {
+    padding: 6px 8px;
+  }
 }

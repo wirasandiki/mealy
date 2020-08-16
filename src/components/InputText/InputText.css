@@ -30,3 +30,19 @@ input::placeholder {
 .input-dark::placeholder {
   color: #23192D;
 }
+
+@media only screen and (max-width: 680px) {
+  input {
+    font-size: 1.5em !important;
+  }
+}
+@media only screen and (max-width: 560px) {
+  input {
+    font-size: 1.1em !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  input {
+    font-size: 1em !important;
+  }
+}

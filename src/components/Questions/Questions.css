@@ -1,10 +1,16 @@
+.question-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 label {
   color: white;
   font-size: 2em;
   display: block;
 }
 
-p {
+.label-description p {
   margin: 8px 0 0 0;
   color: white;
   font-size: 1em;
@@ -12,4 +18,31 @@ p {
 
 .label-description {
   margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 680px) {
+  label {
+    font-size: 1.7em;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  label {
+    font-size: 1.2em;
+  }
+
+  .label-description p {
+    margin: 4px 0 0 0;
+    font-size: .8em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  label {
+    font-size: 1em;
+  }
+  .label-description p {
+    margin: 4px 0 0 0;
+    font-size: .6em;
+  }
 }

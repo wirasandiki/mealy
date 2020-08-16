@@ -40,7 +40,7 @@ function QuestionTwo(props) {
   };
 
   return (
-    <div className="wrapper">
+    <div className="question-wrapper">
       <div className="label-description">
         <label className="primary-text" htmlFor="QuestionOne">Which one is your diet?</label>
         <p className="secondary-text">*optional</p>
