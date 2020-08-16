@@ -11,6 +11,10 @@ header {
   justify-content: center;
 }
 
+header a {
+  text-decoration: none;
+}
+
 .header-logo {
   display: flex;
   width: 1280px;
