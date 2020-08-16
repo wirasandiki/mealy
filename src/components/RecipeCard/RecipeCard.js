@@ -22,13 +22,13 @@ function RecipeCard(props) {
     item: {
       title,
       imageUrl,
-      summary,
       readyInMinutes,
       calory,
       vegan,
       vegetarian,
       glutenFree,
       dairyFree,
+      ingredients,
     },
     onClick,
   } = props;
@@ -85,7 +85,9 @@ function RecipeCard(props) {
         <h3 className="primary-text card-title">{title}</h3>
       </div>
       <div className="bottom">
-        <p className="secondary-text card-summary">{'lorem ipsum'}</p>
+        <div className="card-summary-wrapper">
+          <p className="secondary-text card-summary">{ingredients.join(' • ')}</p>
+        </div>
         <div className="pills-wrapper">
           {tags.map((item, idx) => item.isShow && (
             <div className="pills-item" style={{ marginRight: idx === tags.length - 1 ? undefined : '10px' }} key={idx}>

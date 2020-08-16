@@ -132,11 +132,11 @@ function App() {
             readyInMinutes: item.readyInMinutes,
             calory: item.nutrition.nutrients[0].amount,
             imageUrl: item.image,
-            summary: item.summary,
             vegan: item.vegan,
             vegetarian: item.vegetarian,
             glutenFree: item.glutenFree,
             dairyFree: item.dairyFree,
+            ingredients: item.extendedIngredients.map(ingredient => ingredient.name),
           }));
           setData(preprocessedData);
           setOriginalData(preprocessedData);
