@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import RecipeCard from '../RecipeCard/RecipeCard';
 import InputText from '../InputText/InputText';
@@ -28,6 +29,7 @@ const defaultFilter = {
 
 function RecipeList(props) {
   const { data, onUpdateSetting } = props;
+  const history = useHistory();
   
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState(defaultFilter);
@@ -103,7 +105,7 @@ function RecipeList(props) {
   };
 
   const handleClickCard = (id) => {
-    // TODO
+    history.push(`/recipe/${id}`);
   };
 
   return (

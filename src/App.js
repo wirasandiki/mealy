@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 import Header from './components/Header/Header';
 import Controls from './components/Controls/Controls';
 import MainLogo from './components/MainLogo/MainLogo';
 import { QuestionOne, QuestionTwo } from './components/Questions';
 import RecipeList from './components/RecipeList/RecipeList';
+import RecipeDetails from './components/RecipeDetails/RecipeDetails';
 
 import './App.css';
 import logo from './assets/logo.svg';
@@ -15,9 +21,7 @@ import chevronYellow from './assets/chevron-yellow.svg';
 import chevronGreen from './assets/chevron-green.svg';
 
 import COLOR from './constants/color';
-import { HEADERS, HOST } from './constants/api';
-
-import { RESULT } from './temp';
+import { HEADERS_GET, HOST } from './constants/api';
 
 function App() {
   // Slide states
@@ -90,72 +94,55 @@ function App() {
     }, 300);
   };
   const handleSubmit = () => {
-    setTimeout(() => {
-      const preprocessedData = RESULT.map(item => ({
-        id: item.id,
-        title: item.title,
-        readyInMinutes: item.readyInMinutes,
-        calory: item.nutrition.nutrients[0].amount,
-        imageUrl: item.image,
-        summary: item.summary,
-        vegan: item.vegan,
-        vegetarian: item.vegetarian,
-        glutenFree: item.glutenFree,
-        dairyFree: item.dairyFree,
-      }));
-      setData(preprocessedData);
-      setOriginalData(preprocessedData);
-      showResult();
-      console.log(preprocessedData);
-    }, 1000);
-    // axios({
-    //   method: 'GET',
-    //   url: `${HOST}/recipes/search`,
-    //   headers: HEADERS,
-    //   'params':{
-    //     number: 20,
-    //     offset: 0,
-    //     instructionsRequired: true,
-    //     query,
-    //     diet,
-    //   }
-    // })
-    // .then((response) => {
-    //   const ids = response.data.results.map(item => item.id);
-    //   if (ids.length > 0) {
-    //     axios({
-    //       method: 'GET',
-    //       url: `${HOST}/recipes/informationBulk`,
-    //       headers: HEADERS,
-    //       'params':{
-    //         ids: ids.join(','),
-    //         includeNutrition: true,
-    //       }
-    //     })
-    //     .then((response) => {
-    //       const preprocessedData = response.data.map(item => ({
-    //         id: item.id,
-    //         title: item.title,
-    //         readyInMinutes: item.readyInMinutes,
-    //         calory: item.nutrition.nutrients[0].amount,
-    //         imageUrl: item.image,
-    //         summary: item.summary,
-    //         vegan: item.vegan,
-    //         vegetarian: item.vegetarian,
-    //         glutenFree: item.glutenFree,
-    //         dairyFree: item.dairyFree,
-    //       }));
-    //       setData(preprocessedData);
-    //       showResult();
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   }
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    // });
+    axios({
+      method: 'GET',
+      url: `${HOST}/recipes/search`,
+      headers: HEADERS_GET,
+      'params':{
+        number: 15,
+        offset: 0,
+        instructionsRequired: true,
+        query,
+        diet,
+      }
+    })
+    .then((response) => {
+      const ids = response.data.results.map(item => item.id);
+      if (ids.length > 0) {
+        axios({
+          method: 'GET',
+          url: `${HOST}/recipes/informationBulk`,
+          headers: HEADERS_GET,
+          'params':{
+            ids: ids.join(','),
+            includeNutrition: true,
+          }
+        })
+        .then((response) => {
+          const preprocessedData = response.data.map(item => ({
+            id: item.id,
+            title: item.title,
+            readyInMinutes: item.readyInMinutes,
+            calory: item.nutrition.nutrients[0].amount,
+            imageUrl: item.image,
+            summary: item.summary,
+            vegan: item.vegan,
+            vegetarian: item.vegetarian,
+            glutenFree: item.glutenFree,
+            dairyFree: item.dairyFree,
+          }));
+          setData(preprocessedData);
+          setOriginalData(preprocessedData);
+          showResult();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
   const handleScrollToLoading = () => {
     handlePressNext();
@@ -201,41 +188,55 @@ function App() {
   const logoIcon = slides[activeIndex].backgroundColor === COLOR.GREEN ? logoAlt : logo;
 
   return (
-    <div className="app" style={{ overflow, height: height.current }}>
-      <Header icon={logoIcon} isVisible={activeIndex > 0} backgroundColor={headerBackgroundColor} />
-      {showSlides && (
-        <div className="slide-container" style={{ overflow, height: height.current, transform: `translateY(${translateYWrapper.current}vh)`, zIndex: 1 }}>
-          {activeIndex !== slides.length - 1 && (
-            <Controls
-              prevButton={{
-                isVisible: activeIndex > 0,
-                onPress: handlePressPrev,
-                icon: buttonIcon,
-              }}
-              nextButton={{
-                isVisible: activeIndex === 0 || query.length > 0,
-                onPress: activeIndex === slides.length - 2 ? handleScrollToLoading : handlePressNext,
-                icon: buttonIcon,
-              }}
-              totalIndex={slides.length}
-              activeIndex={activeIndex}
-            />
-          )}
-          <div className="slide-content-wrapper" style={{ transform: `translateY(${translateY.current}vh)`}}>
-            {slides.map(slide => (
-              <div className="banner-container" style={{ backgroundColor: slide.backgroundColor }} key={slide.name}>
-                {slide.content}
+    <Router>
+      <Switch>
+        <Route exact path="/" >
+          <div className="app" style={{ overflow, height: height.current }}>
+            <Header icon={logoIcon} isVisible={activeIndex > 0} backgroundColor={headerBackgroundColor} />
+            {showSlides && (
+              <div className="slide-container" style={{ overflow, height: height.current, transform: `translateY(${translateYWrapper.current}vh)`, zIndex: 1 }}>
+                {activeIndex !== slides.length - 1 && (
+                  <Controls
+                    prevButton={{
+                      isVisible: activeIndex > 0,
+                      onPress: handlePressPrev,
+                      icon: buttonIcon,
+                    }}
+                    nextButton={{
+                      isVisible: activeIndex === 0 || query.length > 0,
+                      onPress: activeIndex === slides.length - 2 ? handleScrollToLoading : handlePressNext,
+                      icon: buttonIcon,
+                    }}
+                    totalIndex={slides.length}
+                    activeIndex={activeIndex}
+                  />
+                )}
+                <div className="slide-content-wrapper" style={{ transform: `translateY(${translateY.current}vh)`}}>
+                  {slides.map(slide => (
+                    <div className="banner-container" style={{ backgroundColor: slide.backgroundColor }} key={slide.name}>
+                      {slide.content}
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            )}
+            <div className="page-content-wrapper">
+              <div className="page-content">
+                <RecipeList data={data} onUpdateSetting={handleUpdateSetting} />
+              </div>
+            </div>
           </div>
-        </div>
-      )}
-      <div className="page-content-wrapper">
-        <div className="page-content">
-          <RecipeList data={data} onUpdateSetting={handleUpdateSetting} />
-        </div>
-      </div>
-    </div>
+        </Route>
+        <Route path="/recipe/:id">
+          <Header icon={logoIcon} isVisible={true} backgroundColor={COLOR.RED} />
+          <div className="page-content-wrapper">
+            <div className="page-content">
+              <RecipeDetails />
+            </div>
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
